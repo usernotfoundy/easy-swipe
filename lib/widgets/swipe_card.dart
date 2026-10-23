@@ -225,6 +225,7 @@ class SwipeCardState extends State<SwipeCard>
 
     return Container(
       decoration: BoxDecoration(
+        color: Colors.black,
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
@@ -443,7 +444,7 @@ class SwipeCardState extends State<SwipeCard>
         widget.item.assetEntity!,
         isOriginal: false,
         thumbnailSize: const ThumbnailSize(900, 1400),
-        fit: BoxFit.cover,
+        fit: BoxFit.fitWidth,
         loadingBuilder: (context, child, loadingProgress) {
           if (loadingProgress == null) return child;
           return Container(
@@ -472,7 +473,7 @@ class SwipeCardState extends State<SwipeCard>
     } else if (widget.item.mockUrl != null) {
       return Image.network(
         widget.item.mockUrl!,
-        fit: BoxFit.cover,
+        fit: BoxFit.fitWidth,
         loadingBuilder: (context, child, loadingProgress) {
           if (loadingProgress == null) return child;
           return Container(

@@ -202,15 +202,18 @@ class _ReviewScreenState extends State<ReviewScreen> {
           children: [
             Center(
               child: InteractiveViewer(
-                child: item.assetEntity != null
-                    ? AssetEntityImage(
-                        item.assetEntity!,
-                        isOriginal: true,
-                        fit: BoxFit.contain,
-                      )
-                    : (item.mockUrl != null
-                        ? Image.network(item.mockUrl!, fit: BoxFit.contain)
-                        : const SizedBox.shrink()),
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: item.assetEntity != null
+                      ? AssetEntityImage(
+                          item.assetEntity!,
+                          isOriginal: true,
+                          fit: BoxFit.fitWidth,
+                        )
+                      : (item.mockUrl != null
+                          ? Image.network(item.mockUrl!, fit: BoxFit.fitWidth)
+                          : const SizedBox.shrink()),
+                ),
               ),
             ),
             // Top Bar
